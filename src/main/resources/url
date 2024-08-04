@@ -1,0 +1,107 @@
+http://localhost:8080/file/upload      postman --> body - file - File - select file
+
+http://localhost:8080/file/infinitywar.png
+
+
+http://localhost:8080/api/v1/movie/add-movie
+
+postman body
+file -> infinitywar.png
+movieDto -> give a json name
+
+
+Pagination and sorting
+
+http://localhost:8080/api/v1/movie/allMoviesPage
+
+http://localhost:8080/api/v1/movie/allMoviesPage?pageNumber=0&pageSize=2
+
+http://localhost:8080/api/v1/movie/allMoviesPageSort
+
+
+http://localhost:8080/api/v1/movie/allMoviesPageSort?sortBy=title&dir=des
+
+
+jwt :
+
+dependency
+user model  -> with refreshToken field
+user repo
+refreshToken -> model
+refreshToken repo
+ApplicationConfig -> for beans of important interfaces/classes
+JwtService
+RefreshTokenService
+AuthFilterService
+
+
+Testing Api with security:
+
+
+
+http://localhost:8080/api/v1/auth/register
+
+{
+   "name" : "Rajesh",
+   "email" : "raj8747@gmail.com",
+   "username" : "rajesko",
+   "password" : "123456"
+}
+
+{
+   "name" : "Admin",
+   "email" : "admin@gmail.com",
+   "username" : "admin",
+   "password" : "654321"
+}
+After post request of regiter , you will get below
+
+{
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWo4NzQ3QGdtYWlsLmNvbSIsImlhdCI6MTcyMjc4MDY2OCwiZXhwIjoxNzIyNzgwNjkzfQ.6vbL3BmSMXUG-nm3Yl2wKyfrah0kgFb6xw7YV9v5GsE",
+    "refreshToken": "dca6c7d6-a7e5-4a16-aff1-a9c0aec733e9"
+}
+
+
+http://localhost:8080/api/v1/auth/login
+{
+   "email" : "raj8747@gmail.com",
+   "password" : "123456"
+}
+
+without providing access token we are not able to get request to get all movie data
+
+http://localhost:8080/api/v1/movie/all
+
+select authorization as JWT Bearer and add headers as Authorization : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWo4NzQ3QGdtYWlsLmNvbSIsImlhdCI6MTcyMjc4MDY2OCwiZXhwIjoxNzIyNzgwNjkzfQ.6vbL3BmSMXUG-nm3Yl2wKyfrah0kgFb6xw7YV9v5GsE
+
+http://localhost:8080/api/v1/auth/refresh
+
+{
+   "refreshToken" : "885f3e07-1e57-4043-833c-7844a0051ca2"
+
+}
+
+After providing refresh token you will get new access and refresh token
+
+
+http://localhost:8080/api/v1/movie/add-movie
+
+only admin has able to add movie
+in postman body
+file  - master.png
+movieDto - { file data}  -- take from scratch.json
+select authorization as JWT Bearer and add headers as Authorization : Bearer (Admin access token)
+
+
+
+Forgot password with email and send otp verification
+
+http://localhost:8080/forgotPassword/verifyMail/{email}
+http://localhost:8080/forgotPassword/verifyOtp/{otp}/{email}
+
+http://localhost:8080/forgotPassword/changePassword/{email}
+
+{
+  "password" : "",
+  "repeatPassword" : ""
+}

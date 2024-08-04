@@ -1,0 +1,35 @@
+[
+	{
+	    "movieId" : 1,
+		"title" : "Avengers: Infinity War",
+		"director"  : "Anthony Russo Joe Russo",
+		"studio"  : "Marvel Studios",
+		"movieCast"  : ["Zoe Saldaña","Josh Brolin","Chris Pratt"],
+		"releaseYear" : 2018,
+		"poster"  : "default.png",
+		"posterUrl"  : "url"
+     },
+
+
+{
+	    "movieId" : 2,
+		"title" : "Avengers: Endgame",
+		"director"  : "Anthony Russo Joe Russo",
+		"studio"  : "Marvel Studios",
+		"movieCast"  : ["Karen Gillan","Robert Downey Jr","Mark Ruffalo"],
+		"releaseYear" : 2019,
+		"poster"  : "default.png",
+		"posterUrl"  : "url" 
+},
+
+	{
+		"movieId" : 3,
+		"title" : "Master",
+		"director"  : "Lokesh Kanagaraj",
+		"studio"  : "XB Film Creators",
+		"movieCast"  : ["Vijay","Vijay Sethupathi","Malavika Mohanan","Andrea Jeremiah"],
+		"releaseYear" : 2021,
+		"poster"  : "default.png",
+		"posterUrl"  : "url"
+	}
+]
